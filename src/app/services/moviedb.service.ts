@@ -20,7 +20,8 @@ export class MoviedbService {
       this.apikey
     }&language=es&callback=JSONP_CALLBACK`;
 
-    //es importante verificar el uso de jsonp para poder hacer solicitud a otros dominios
+    // Si la peticion se hace con http.get da error porque moviedb no acepta cross domain
+    //por eso es importante verificar el uso de jsonp para poder hacer solicitud a otros dominios
     return this.http.jsonp(url, "");
   }
 
