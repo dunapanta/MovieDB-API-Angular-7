@@ -13,26 +13,30 @@ export class MoviedbService {
 
   constructor(private http: HttpClient) {}
 
-  getDiscoverMovies() {
-    const url = `${
-      this.urlMoviedb
-    }/discover/movie?sort_by=popularity.desc&api_key=${
-      this.apikey
-    }&language=es&callback=JSONP_CALLBACK`;
-    return this.http.jsonp(url, "").pipe(map(res => res));
-  }
+  //Metodo para pasar URL para peticion
 
-  /*   getQuery(query: string) {
+  getQuery(query: string) {
     const url = `https://api.themoviedb.org/3${query}&api_key=${
       this.apikey
     }&language=es&callback=JSONP_CALLBACK`;
 
-    return this.http.get(url);
-  } */
+    //es importante verificar el uso de jsonp para poder hacer solicitud a otros dominios
+    return this.http.jsonp(url, "");
+  }
 
-  /*   getDiscoverMovies() {
+  getDiscoverMovies() {
     return this.getQuery("/discover/movie?sort_by=popularity.desc").pipe(
       map((data: any) => data.results)
     );
-  } */
+  }
+
+  // Otra alternativa para hacer la consulta
+  /*   getDiscoverMovies() {
+  const url = `${
+    this.urlMoviedb
+  }/discover/movie?sort_by=popularity.desc&api_key=${
+    this.apikey
+  }&language=es&callback=JSONP_CALLBACK`;
+  return this.http.jsonp(url, "").pipe(map((res: any) => res.results));
+} */
 }

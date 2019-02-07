@@ -5,11 +5,11 @@ import { AppComponent } from "./app.component";
 import { HomeComponent } from "./components/home/home.component";
 
 // servicio
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HttpClientJsonpModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
-  imports: [BrowserModule, HttpClientModule],
+  imports: [BrowserModule, HttpClientModule, HttpClientJsonpModule],
   providers: [],
   bootstrap: [AppComponent]
 })
