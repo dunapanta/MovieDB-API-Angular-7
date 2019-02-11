@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col">
+    <input
+      #termino
+      type="text"
+      (keyup)="buscar(termino.value)"
+      class="form-control"
+      placeholder="Buscar Pelicula"
+    />
+  </div>
+</div>
+
+<app-loading class="m-5" *ngIf="loading"></app-loading>
+
+<app-tarjetas *ngIf="!loading" [items]="peliculas"></app-tarjetas>
