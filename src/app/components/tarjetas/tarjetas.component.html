@@ -1,4 +1,4 @@
-<div class="card-columns m-5 animated fadeIn" *ngIf="items">
+<div class="card-columns m-5 animated fadeIn">
   <div (click)="verPelicula(item)" *ngFor="let item of items" class="card puntero">
     <img class="card-img-top" [src]="item | peliculaImagen" alt="Card image cap" />
     <div class="card-body">
