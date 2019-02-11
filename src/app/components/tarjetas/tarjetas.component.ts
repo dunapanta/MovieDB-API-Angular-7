@@ -17,7 +17,6 @@ export class TarjetasComponent {
     let peliculaId;
 
     peliculaId = item.id;
-
     /* let artistaId;
 
     if (item.type === "album") {
